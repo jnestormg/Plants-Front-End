@@ -71,7 +71,12 @@ const Formulario = () => {
     const [foto, setFoto] = useState("");
     const [descripcion, setDescripcion] = useState("");
 
-   
+    useEffect(() => {
+        const save = JSON.parse(localStorage.getItem("datos"))
+        setNombre(save.nombre)
+        setFoto(save.foto)
+        setDescripcion(save.descripcion)
+    }, [])
 
 
 
