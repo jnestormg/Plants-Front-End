@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FaSearch } from "react-icons/fa";
 
 const Header = styled.header`
     width: 100%;
@@ -26,11 +25,14 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-&:last-child{
+@media (min-width: 320px) and (max-width:600px) {
+    &:last-child{
     position: absolute;
     right: 0;
     margin-right: 40px;
-    }
+    } 
+}
+
 `;
 
 const StyledLink = styled(Link)`
@@ -45,30 +47,7 @@ const StyledLink = styled(Link)`
     
 `;
 
-const Buscar = styled.div`
-position: relative;
-`
-const InputBuscar = styled.input`
-    height: 40px;
-    width: 200px;
-    outline: none;
-    border-radius: 10px;
-    border: none;
-    padding: 5px 10px;
-`
-const BotonBuscar = styled.button`
-position: absolute;
-right: 0;
-width: 40px;
-height: 40px;
-background: #39b008;
-border-radius: 10px;
-border: none;
-color: white;
-&:active{
-    background: blue;
-}
-`
+
 
 const Cabecera = () => {
     return (
@@ -81,14 +60,7 @@ const Cabecera = () => {
                     <Li>
                         <StyledLink to="/formulario">Agregar planta</StyledLink>
                     </Li>
-                    <Li>
-                        <Buscar>
-                            <InputBuscar placeholder="Buscar..." />
-                            <BotonBuscar>
-                                <FaSearch />
-                            </BotonBuscar>
-                        </Buscar>
-                    </Li>
+                    
                 </Ul>
             </Nav>
         </Header>

@@ -12,10 +12,23 @@ const Content = styled.div`
 
 const CardContainer = styled.section`
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: 1fr;
 gap: 10px;
-justify-content: center;
-align-items: center;
+
+
+   @media (min-width: 320px) and (max-width:480px){
+    grid-template-columns: repeat(1, 1fr);
+}
+
+    @media (min-width: 481px) and (max-width:768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 768px) and (max-width:1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1025px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
 `
 
@@ -25,24 +38,22 @@ const Cards = () => {
     const nombrePlanta = planta.filter((plan) => plan.nombre === 'dalia');
     return (
         <>
-            <Main>
-                <h2>Plantas</h2>
-                <Content>
-                    <CardContainer>
+            <h2>Plantas</h2>
+            <Content>
+                <CardContainer>
 
-                        {
-                            planta.filter((p) => p.foto != null).map((plant) => {
-                                console.log(plant.foto);
-                                return <Card key={plant.id}
-                                    foto={plant.foto}
-                                    id={plant.id}
-                                    nombre={plant.nombre}
-                                    descripcion={plant.descripcion} />
-                            })
-                        }
-                    </CardContainer>
-                </Content>
-            </Main>
+                    {
+                        planta.filter((p) => p.foto != null).map((plant) => {
+                            console.log(plant.foto);
+                            return <Card key={plant.id}
+                                foto={plant.foto}
+                                id={plant.id}
+                                nombre={plant.nombre}
+                                descripcion={plant.descripcion} />
+                        })
+                    }
+                </CardContainer>
+            </Content>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import Cabecera from "./components/Cabecera"
 import Cards from "./components/Cards"
 import Formulario from "./pages/Formulario"
+import Inicio from "./pages/Inicio"
 
 const { BrowserRouter, Routes, Route, Form } = require("react-router-dom")
 
@@ -10,7 +11,7 @@ function Rutas() {
               <Cabecera />
 
             <Routes>
-                <Route path="/" element={<Cards />}></Route>
+                <Route path="/" element={<Inicio />}></Route>
                 <Route path="/formulario" element={<Formulario />} ></Route>
             </Routes>
         </BrowserRouter>

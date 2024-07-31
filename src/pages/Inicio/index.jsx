@@ -1,8 +1,16 @@
+import Buscador from "../../components/Buscar"
+import Cards from "../../components/Cards"
+import Main from "../../components/Main"
 
 
-const Inicio =()=>{
-    return(
-<h1></h1>
+const Inicio = () => {
+    return (
+        <>
+            <Main>
+                <Buscador />
+                <Cards />
+            </Main>
+        </>
     )
 }
 
