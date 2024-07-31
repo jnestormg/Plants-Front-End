@@ -1,5 +1,7 @@
 *{
   box-sizing: border-box;
+  cursor: url('./img/icon-hoja.png')16 16, auto;
+
 }
 body {
   margin: 0;
