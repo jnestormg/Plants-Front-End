@@ -32,7 +32,6 @@ gap: 10px;
 
 `
 
-
 const Cards = () => {
     const { planta } = useContext(ContextGlobal)
     const nombrePlanta = planta.filter((plan) => plan.nombre === 'dalia');
