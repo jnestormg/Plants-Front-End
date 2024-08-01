@@ -7,16 +7,18 @@ const Context = ({ children }) => {
 
     const [planta, setPlanta] = useState([]);
 
+    const url = "https://plants-production-6c0e.up.railway.app/api/v1/plantas";
+
     useEffect(() => {
-        fetch("https://plants-production-6c0e.up.railway.app/api/v1/plantas").
+        fetch(url).
             then(response => response.json()).
             then(data => {
                 setPlanta(data)
             })
     }, [])
 
-    const actualizar = (datos) => {
-        fetch("https://plants-production-6c0e.up.railway.app/api/v1/plantas",
+    const guardar = (datos) => {
+        fetch(url,
             {
                 method: "POST",
                 headers: {
@@ -29,17 +31,32 @@ const Context = ({ children }) => {
 
     const borrar = async (id) => {
         try {
-            const repuesta = await fetch(`https://plants-production-6c0e.up.railway.app/api/v1/plantas/${id}`,
+            const repuesta = await fetch(`${url}/${id}`,
                 {
                     method: "DELETE",
                 })
-                window.location.reload()
+            window.location.reload()
         }
         catch (error) { console.log(error); }
     }
 
+    const buscar = (nombre) => {
+
+        try {
+            if (nombre != null) {
+                fetch(`${url}/nombre/${nombre}`).
+                    then(response => response.json()).
+                    then(data => { setPlanta(data) })
+            
+            }
+        } catch (error) {
+
+        }
+
+    }
+
     return (
-        <ContextGlobal.Provider value={{ planta, setPlanta, actualizar, borrar }}>
+        <ContextGlobal.Provider value={{ planta, setPlanta, guardar, borrar, buscar }}>
             {children}
         </ContextGlobal.Provider>
     )

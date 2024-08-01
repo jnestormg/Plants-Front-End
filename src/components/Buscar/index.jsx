@@ -1,5 +1,8 @@
 import styled from "styled-components"
 import { FaSearch } from "react-icons/fa";
+import { useContext, useEffect, useRef } from "react";
+import { ContextGlobal } from "../Context";
+import { useState } from "react";
 
 const ContainerBuscador = styled.div`
     display: flex;
@@ -33,15 +36,33 @@ color: white;
 `
 
 const Buscador = () => {
+
+
+    const { planta, setPlanta, buscar } = useContext(ContextGlobal)
+    const[dato, setDato]=useState("");
+
+    const updateDate =(e)=>{
+        setDato(e.target.value)
+    }
+
+    const buscando =(e)=>{
+        e.preventDefault()
+        buscar(dato);
+        setDato('')
+
+    }
+
     return (
         <>
             <ContainerBuscador>
-                <Buscar>
-                    <InputBuscar placeholder="Buscar..." />
-                    <BotonBuscar>
-                        <FaSearch />
-                    </BotonBuscar>
-                </Buscar>
+                <form onSubmit={buscando}>
+                    <Buscar>
+                        <InputBuscar placeholder="Buscar..." value={dato} onChange={updateDate} />
+                        <BotonBuscar>
+                            <FaSearch />
+                        </BotonBuscar>
+                    </Buscar>
+                </form>
             </ContainerBuscador>
         </>
 

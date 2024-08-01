@@ -81,8 +81,8 @@ const Formulario = () => {
 */
 
 
-    //metodo actualizar 
-    const { actualizar } = useContext(ContextGlobal)
+    //metodo guardar 
+    const { guardar } = useContext(ContextGlobal)
 
     const navigate = useNavigate()
 
@@ -98,7 +98,7 @@ const Formulario = () => {
         localStorage.setItem("datos", JSON.stringify(datos))
 
 
-        actualizar(datos);
+        guardar(datos);
         navigate("/")
     }
 

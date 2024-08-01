@@ -104,6 +104,7 @@ const Card = (props) => {
 
     const { borrar } = useContext(ContextGlobal);
 
+
     const share = async () => {
         const fileArray = [];
 

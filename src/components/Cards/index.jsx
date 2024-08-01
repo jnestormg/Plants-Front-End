@@ -16,8 +16,8 @@ gap: 10px;
 
 
    @media (min-width: 320px) and (max-width:480px){
-    grid-template-columns: repeat(1, 1fr);
-}
+    grid-template-columns: repeat(1, 1fr); 
+  }
 
     @media (min-width: 481px) and (max-width:768px) {
         grid-template-columns: repeat(2, 1fr);
@@ -32,8 +32,7 @@ gap: 10px;
 `
 
 const Cards = () => {
-    const { planta } = useContext(ContextGlobal)
-    const nombrePlanta = planta.filter((plan) => plan.nombre === 'dalia');
+    const { planta } = useContext(ContextGlobal);
     return (
         <>
             <h2>Plantas</h2>
@@ -41,7 +40,7 @@ const Cards = () => {
                 <CardContainer>
 
                     {
-                        planta.filter((p) => p.foto != null).map((plant) => {
+                        planta.map((plant) => {
                             console.log(plant.foto);
                             return <Card key={plant.id}
                                 foto={plant.foto}
