@@ -9,12 +9,10 @@ const Button=styled.button`
     border-radius: 4px;
     padding: 10px;
     font-family: "Arsenal SC", sans-serif;
-
     &:hover{
         background: #2d8708;
     }
 `
-
 const Boton=(props)=>{
     return(
         <Button>{props.val}</Button>

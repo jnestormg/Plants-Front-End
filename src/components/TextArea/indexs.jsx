@@ -11,15 +11,12 @@ const Area=styled.textarea`
     &:focus{
         outline: none;
     }
-
 `
-
 const Label=styled.label`
     font-size: 16px;
     font-weight: bold;
     color: #2d8708;
 `
-
 const TextArea =(props)=>{
 
     const actualizarValor=(e)=>{

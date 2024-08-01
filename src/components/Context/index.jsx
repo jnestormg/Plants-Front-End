@@ -17,6 +17,10 @@ const Context = ({ children }) => {
             })
     }, [])
 
+    const mostrarTodas = () => {
+        fetch(url).then(response => response.json()).then(dat => { setPlanta(dat) })
+    }
+
     const guardar = (datos) => {
         fetch(url,
             {
@@ -41,22 +45,20 @@ const Context = ({ children }) => {
     }
 
     const buscar = (nombre) => {
-
         try {
             if (nombre != null) {
                 fetch(`${url}/nombre/${nombre}`).
                     then(response => response.json()).
                     then(data => { setPlanta(data) })
-            
+
             }
         } catch (error) {
-
+            console.log(error);
         }
-
     }
 
     return (
-        <ContextGlobal.Provider value={{ planta, setPlanta, guardar, borrar, buscar }}>
+        <ContextGlobal.Provider value={{ planta, setPlanta, guardar, borrar, buscar, mostrarTodas }}>
             {children}
         </ContextGlobal.Provider>
     )

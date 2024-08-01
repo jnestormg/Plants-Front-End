@@ -2,23 +2,16 @@ import { useContext } from "react"
 import { ContextGlobal } from "../Context"
 import Card from "./Card"
 import styled from "styled-components"
-import Main from "../Main"
-
 
 const Content = styled.div`
-
 `
-
 const CardContainer = styled.section`
-display: grid;
-grid-template-columns: 1fr;
-gap: 10px;
-
-
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 10px;
    @media (min-width: 320px) and (max-width:480px){
     grid-template-columns: repeat(1, 1fr); 
-  }
-
+   }
     @media (min-width: 481px) and (max-width:768px) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -28,7 +21,6 @@ gap: 10px;
     @media (min-width: 1025px) {
         grid-template-columns: repeat(4, 1fr);
     }
-
 `
 
 const Cards = () => {
@@ -49,6 +41,7 @@ const Cards = () => {
                                 descripcion={plant.descripcion} />
                         })
                     }
+
                 </CardContainer>
             </Content>
         </>

@@ -8,8 +8,7 @@ const { BrowserRouter, Routes, Route, Form } = require("react-router-dom")
 function Rutas() {
     return (
         <BrowserRouter>
-              <Cabecera />
-
+            <Cabecera />
             <Routes>
                 <Route path="/" element={<Inicio />}></Route>
                 <Route path="/formulario" element={<Formulario />} ></Route>

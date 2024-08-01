@@ -11,13 +11,11 @@ const Input=styled.input`
         outline: none;
     }
 `
-
 const Label=styled.label`
     font-size: 16px;
     font-weight: bold;
     color: #2d8708;
 `
-
 const Campo =(props)=>{
 
     const actualizarValor=(e)=>{

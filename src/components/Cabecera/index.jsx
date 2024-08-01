@@ -10,8 +10,7 @@ const Header = styled.header`
     color: white;
     padding: 10px;
     z-index: 1000;
-`;
-
+`
 const Nav = styled.nav``;
 
 const Ul = styled.ul`
@@ -20,35 +19,26 @@ const Ul = styled.ul`
     gap: 20px;
     list-style: none;
     padding: 0;
-    margin: 0;
-    
-`;
-
+    margin: 0; 
+`
 const Li = styled.li`
-@media (min-width: 320px) and (max-width:600px) {
+    @media (min-width: 320px) and (max-width:600px) {
     &:last-child{
     position: absolute;
     right: 0;
     margin-right: 40px;
     } 
 }
-
-`;
-
+`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: white; 
     font-size: 25px;
     font-family: "Arsenal SC", sans-serif;
-
     &:hover{
         color: #39b008;
-    }
-    
-`;
-
-
-
+    }  
+`
 const Cabecera = () => {
     return (
         <Header>

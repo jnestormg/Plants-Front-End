@@ -4,7 +4,6 @@ import { ContextGlobal } from "../../Context"
 import { Link } from "react-router-dom"
 import { FaShareAlt } from "react-icons/fa";
 
-
 const CardDiv = styled.div`
     width: 300px;
     height: 370px;
@@ -26,16 +25,9 @@ const CardDiv = styled.div`
 `
 
 const Figure = styled.figure`
-
-
-`
-const FooterCard = styled.div`
-  
 `
 const FigCaption = styled.figcaption`
-cursor: pointer;
-
-
+    cursor: pointer;
 &:hover{
     position: absolute;
     color: white;
@@ -55,43 +47,40 @@ const ImagenCard = styled.img`
     aspect-ratio: 1;
 `
 const Titulo = styled.h3`
-color: #2d8708;
-font-family: "Arsenal SC", sans-serif;
+    color: #2d8708;
+    font-family: "Arsenal SC", sans-serif;
 `
 const Descripcion = styled.p`
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 2;
-text-overflow: ellipsis;
-overflow:hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow:hidden;
 `
 const StyleLink = styled(Link)`
 `
 const DeleteIcon = styled.div`
-position: absolute;
-top: 0;
-right: 0%;
-width: 25px;
-height: 25px;
-z-index: 200;
-font-weight: bold;
-background: #2d8708;
-border-radius: 50%;
-padding: 5px;
-text-align: center;
-color: white;
-font-size: 10px;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 25px;
+    height: 25px;
+    z-index: 200;
+    font-weight: bold;
+    background: #2d8708;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 10px;
     &:hover{
         background:red ;
     }
-
 `
 const ShareIcon = styled(FaShareAlt)`
-color:#2d8708 ;
-transform: translate(0px, 20px);
-
+    color:#2d8708 ;
+    transform: translate(0px, 20px);
 `
-
 const Back = styled.div`
 `
 const Front = styled.div`
@@ -99,11 +88,7 @@ const Front = styled.div`
     justify-content: space-between;
 `
 const Card = (props) => {
-
-    console.log("foto" + props.foto);
-
     const { borrar } = useContext(ContextGlobal);
-
 
     const share = async () => {
         const fileArray = [];
@@ -127,11 +112,10 @@ const Card = (props) => {
         }
     }
 
-
     return (
         <>
             <CardDiv>
-                <StyleLink onClick={() => borrar(props.id)}><DeleteIcon  title="Eliminar">X</DeleteIcon></StyleLink>
+                <StyleLink onClick={() => borrar(props.id)}><DeleteIcon title="Eliminar">X</DeleteIcon></StyleLink>
 
                 <Figure>
                     <ImagenCard src={props.foto} alt={props.nombre} />
@@ -144,8 +128,6 @@ const Card = (props) => {
                             <Descripcion className="texto-descripcion">{props.descripcion}</Descripcion>
                         </FigCaption>
                     </Back>
-
-
                 </Figure>
             </CardDiv>
         </>
