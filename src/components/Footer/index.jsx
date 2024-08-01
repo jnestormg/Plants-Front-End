@@ -11,7 +11,7 @@ const PiePagina=styled.footer`
 `
 const Liga=styled.a`
     text-decoration: none;
-    color: white;
+    color: #8bf1ff;
     &:hover{
         color: green;
     }
