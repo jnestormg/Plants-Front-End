@@ -31,7 +31,8 @@ const Campo =(props)=>{
         <Input
          placeholder={props.placeholder} 
          value={props.valor} 
-         onChange={actualizarValor} >
+         onChange={actualizarValor} 
+         required={props.required}>
          </Input>
          
         </>

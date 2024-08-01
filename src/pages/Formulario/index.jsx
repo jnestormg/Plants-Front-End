@@ -111,10 +111,10 @@ const Formulario = () => {
                         <Campo placeholder="Nombre..."
                             titulo="Nombre"
                             valor={nombre}
-                            setValor={setNombre} />
+                            setValor={setNombre} required={true} />
 
                         <Campo placeholder="Ingresa url de la foto..."
-                            titulo="Foto" valor={foto} setValor={setFoto} />
+                            titulo="Foto" valor={foto} setValor={setFoto}  required={true}/>
 
                         <TextArea placeholder="Agrega una descripción..."
                             titulo="Descripción" valor={descripcion}
