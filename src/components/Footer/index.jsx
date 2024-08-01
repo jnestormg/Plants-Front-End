@@ -21,7 +21,8 @@ const Footer=()=>{
     return(
         <>
         <PiePagina>
-            <h5>Desarrollado por: <Liga href="mailto:nmeneses51@gmail.com">Néstor Meneses</Liga> </h5>
+            <h5>Desarrollado por: Néstor Meneses</h5>
+            <h5>Correo: <Liga href="mailto:nmeneses51@gmail.com">nmeneses51@gmail.com</Liga> </h5>
         </PiePagina>
         </>
     )
