@@ -48,9 +48,21 @@ const Context = ({ children }) => {
         try {
             if (nombre != null) {
                 fetch(`${url}/nombre/${nombre}`).
-                    then(response => response.json()).
-                    then(data => { setPlanta(data) })
-
+                    then(response => {
+                        if (!response.ok) {
+                            console.log(response.statusText);
+                        }
+                        else {
+                            return response.json()
+                        }
+                    }).
+                    then(data => {
+                        if (data.length > 0) {
+                            return setPlanta(data)
+                        }
+                        else { alert("No existe la planta: " + nombre) }
+                    }).
+                    catch(error => console.error('Hubo un problema: ' + error))
             }
         } catch (error) {
             console.log(error);
