@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { FaShareAlt } from "react-icons/fa";
 
 const CardDiv = styled.div`
-    width: 300px;
+    width: 100%;
     height: 370px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 5px;
@@ -13,14 +13,28 @@ const CardDiv = styled.div`
     transition: 0.7s;
     overflow: hidden;
     position: relative;
+    animation: scroll linear;
+    animation-timeline: view();
+    animation-range:entry 20% cover 40%;
     &:hover {      
-          box-shadow: 12px 12px 12px rgba(0,0,0,0.2), -10px -10px 10px white;
+          box-shadow: 12px 12px 12px rgba(0,0,0,0.2), -5px -5px 10px white;
     }
     &:hover  .texto-descripcion{
     -webkit-line-clamp: unset;
     white-space: normal;
     overflow: visible;
     z-index: 500;
+    
+    }
+    @keyframes scroll {
+        from{
+            opacity: 0;
+            scale: 0.5;
+        }
+        to{
+            opacity: 1;
+            scale: 1;
+        }
     }
 `
 
@@ -32,7 +46,7 @@ const FigCaption = styled.figcaption`
     position: absolute;
     color: white;
     inset: 0;
-    width: 95%;
+    width: 100%;
     text-align: center;
     background: rgba(0,0,0,0.7);
     transition: 0.7s;
@@ -43,7 +57,9 @@ const ImagenCard = styled.img`
     width: 100%;
     height: 225px;
     object-fit: cover; 
-    mask-image: linear-gradient(black 80%, transparent);
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+   /* mask-image: linear-gradient(black 80%, transparent);*/
     aspect-ratio: 1;
 `
 const Titulo = styled.h3`

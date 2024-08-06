@@ -7,8 +7,9 @@ const Content = styled.div`
 `
 const CardContainer = styled.section`
    display: grid;
+   width: 100%;
    grid-template-columns: 1fr;
-   gap: 10px;
+   gap: 20px;
    @media (min-width: 320px) and (max-width:480px){
     grid-template-columns: repeat(1, 1fr); 
    }

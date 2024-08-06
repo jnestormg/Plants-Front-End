@@ -9,18 +9,25 @@ import { Link } from "react-router-dom";
 const ContainerBuscador = styled.div`
     display: flex;
     justify-content: end;
+    @media (min-width: 320px) and (max-width:600px) {
+        width: 100%;
+    }
 `
 const Buscar = styled.div`
     position: relative;
+  
 `
 const InputBuscar = styled.input`
     height: 40px;
     width: 300px;
     outline: none;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,0,0,0.2);
     padding: 0px 30px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    @media (min-width: 320px) and (max-width:600px) {
+        width: 100%;
+    }
 `
 const BotonBuscar = styled.button`
     position: absolute;

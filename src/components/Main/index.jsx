@@ -5,7 +5,7 @@ const PrincipalContenedor=styled.main`
     padding:20px;
 
     @media (min-width: 320px) and (max-width:480px){
-    padding: 40px;
+    padding: 20px;
    }
 
 `

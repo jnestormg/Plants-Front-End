@@ -26,6 +26,7 @@ const Li = styled.li`
     &:last-child{
     position: absolute;
     right: 0;
+    padding: 0 10px;
     } 
 }
 `

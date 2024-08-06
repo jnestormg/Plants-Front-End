@@ -18,7 +18,7 @@ const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.1);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
