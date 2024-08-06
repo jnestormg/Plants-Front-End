@@ -9,13 +9,14 @@ const CardDiv = styled.div`
     height: 370px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 5px;
+    background: white;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     transition: 0.7s;
     overflow: hidden;
     position: relative;
     animation: scroll linear;
     animation-timeline: view();
-    animation-range:entry 20% cover 40%;
+    animation-range:entry 5% cover 50%;
     &:hover {      
           box-shadow: 12px 12px 12px rgba(0,0,0,0.2), -5px -5px 10px white;
     }
@@ -49,7 +50,7 @@ const FigCaption = styled.figcaption`
     width: 100%;
     text-align: center;
     background: rgba(0,0,0,0.7);
-    transition: 0.7s;
+    transition: 1s;
     padding: 10px;
 }
 `
@@ -57,14 +58,21 @@ const ImagenCard = styled.img`
     width: 100%;
     height: 225px;
     object-fit: cover; 
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 4px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
    /* mask-image: linear-gradient(black 80%, transparent);*/
-    aspect-ratio: 1;
+    vertical-align: middle;
+    &:hover{
+        filter:saturate(200%);
+    }
 `
 const Titulo = styled.h3`
-    color: #2d8708;
-    font-family: "Arsenal SC", sans-serif;
+    color: #474747;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+
+
 `
 const Descripcion = styled.p`
     display: -webkit-box;
@@ -72,6 +80,10 @@ const Descripcion = styled.p`
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
     overflow:hidden;
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
 `
 const StyleLink = styled(Link)`
 `
@@ -83,7 +95,7 @@ const DeleteIcon = styled.div`
     height: 25px;
     z-index: 200;
     font-weight: bold;
-    background: #2d8708;
+    background: #ff3b3b;
     border-radius: 50%;
     padding: 5px;
     text-align: center;
@@ -102,6 +114,8 @@ const Back = styled.div`
 const Front = styled.div`
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+
 `
 const Card = (props) => {
     const { borrar } = useContext(ContextGlobal);
@@ -132,11 +146,12 @@ const Card = (props) => {
         <>
             <CardDiv>
                 <StyleLink onClick={() => borrar(props.id)}><DeleteIcon title="Eliminar">X</DeleteIcon></StyleLink>
+                <ImagenCard src={props.foto} alt={props.nombre} />
 
                 <Figure>
-                    <ImagenCard src={props.foto} alt={props.nombre} />
+                    
                     <Front>
-                        <Titulo>{props.nombre}</Titulo>
+                        <Titulo>{props.nombre.toUpperCase()}</Titulo>
                         <Link onClick={() => share()}><ShareIcon title="Compartir" /></Link>
                     </Front>
                     <Back>
