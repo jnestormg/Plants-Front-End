@@ -6,9 +6,9 @@ import { FaShareAlt } from "react-icons/fa";
 
 const CardDiv = styled.div`
     width: 100%;
-    height: 370px;
+    height: 375px;
     border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 5px 15px 5px 5px;
+    border-radius: 10px 10px 5px 5px;
     background: white;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     transition: 0.7s;
@@ -25,6 +25,7 @@ const CardDiv = styled.div`
     white-space: normal;
     overflow: visible;
     z-index: 500;
+    height: 60px;
     
     }
     @keyframes scroll {
@@ -43,6 +44,7 @@ const Figure = styled.figure`
 `
 const FigCaption = styled.figcaption`
     cursor: pointer;
+   
 &:hover{
     position: absolute;
     color: white;
@@ -52,6 +54,9 @@ const FigCaption = styled.figcaption`
     background: rgba(0,0,0,0.7);
     transition: 1s;
     padding: 10px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
 }
 `
 const ImagenCard = styled.img`
@@ -77,20 +82,22 @@ const Titulo = styled.h3`
 const Descripcion = styled.p`
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     text-overflow: ellipsis;
     overflow:hidden;
     padding: 5px;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 15px;
+    width: 100%;
+    height: 60px;
 `
 const StyleLink = styled(Link)`
 `
 const DeleteIcon = styled.div`
     position: absolute;
     top: 0;
-    right: 0%;
+    right: 0;
     width: 25px;
     height: 25px;
     z-index: 200;
@@ -114,7 +121,7 @@ const Back = styled.div`
 const Front = styled.div`
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 
 `
 const Card = (props) => {
