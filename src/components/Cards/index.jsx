@@ -29,7 +29,7 @@ const Cards = () => {
     const { planta } = useContext(ContextGlobal);
     return (
         <>
-            <h2>Plantas</h2>
+            <h2>Colección de plantas</h2>
             <Content>
                 <CardContainer>
 
