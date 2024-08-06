@@ -25,6 +25,7 @@ const Form = styled.form`
     font-family: "Arsenal SC", sans-serif;
     @media (min-width: 320px) and (max-width:480px){
         width: 100%;
+        height: 100%;
     }
 
     @media (min-width: 481px) and (max-width:768px) {

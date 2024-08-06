@@ -11,6 +11,7 @@ const ContainerBuscador = styled.div`
     justify-content: end;
     @media (min-width: 320px) and (max-width:600px) {
         width: 100%;
+        justify-content: center;
     }
 `
 const Buscar = styled.div`
@@ -25,9 +26,7 @@ const InputBuscar = styled.input`
     border: 1px solid rgba(0,0,0,0.2);
     padding: 0px 30px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-    @media (min-width: 320px) and (max-width:600px) {
-        width: 100%;
-    }
+   
 `
 const BotonBuscar = styled.button`
     position: absolute;

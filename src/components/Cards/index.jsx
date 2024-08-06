@@ -12,6 +12,7 @@ const CardContainer = styled.section`
    gap: 20px;
    @media (min-width: 320px) and (max-width:480px){
     grid-template-columns: repeat(1, 1fr); 
+    
    }
     @media (min-width: 481px) and (max-width:768px) {
         grid-template-columns: repeat(2, 1fr);
