@@ -14,7 +14,6 @@ function Rutas() {
                 <Route path="/" element={<Inicio />}></Route>
                 <Route path="/formulario" element={<Formulario />} ></Route>
             </Routes>
-            <Footer />
         </BrowserRouter>
     )
 }
