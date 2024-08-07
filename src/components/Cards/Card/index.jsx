@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const CardDiv = styled.div`
     width: 100%;
-    height: 440px;
+    height: 455px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px 10px 5px 5px;
     background: white;
@@ -103,6 +103,7 @@ const DescripcionCompleta = styled.p`
     text-wrap:pretty;
     color: #696969;
     transition: 1s;
+    scrollbar-color: green white;
     
 `
 
