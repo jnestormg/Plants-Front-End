@@ -3,10 +3,11 @@ import { useContext } from "react"
 import { ContextGlobal } from "../../Context"
 import { Link } from "react-router-dom"
 import { FaShareAlt } from "react-icons/fa";
+import { useState } from "react";
 
 const CardDiv = styled.div`
     width: 100%;
-    height: 375px;
+    height: 440px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px 10px 5px 5px;
     background: white;
@@ -16,17 +17,14 @@ const CardDiv = styled.div`
     position: relative;
     animation: scroll linear;
     animation-timeline: view();
-    animation-range:entry 20% ;
+    animation-range:entry 10% ;
     &:hover {      
           box-shadow: 12px 12px 12px rgba(0,0,0,0.2), -5px -5px 10px white;
+        filter:saturate(150%);
+    
     }
     &:hover  .texto-descripcion{
-    -webkit-line-clamp: unset;
-    white-space: normal;
-    overflow: visible;
-    z-index: 500;
-    height: 60px;
-    
+
     }
     @keyframes scroll {
         from{
@@ -43,7 +41,7 @@ const CardDiv = styled.div`
 const Figure = styled.figure`
 `
 const FigCaption = styled.figcaption`
-    cursor: pointer;
+    /*cursor: pointer;
    
 &:hover{
     position: absolute;
@@ -57,7 +55,8 @@ const FigCaption = styled.figcaption`
     display: flex;
     justify-items: center;
     justify-content: center;
-}
+}*/
+
 `
 const ImagenCard = styled.img`
     width: 100%;
@@ -66,9 +65,7 @@ const ImagenCard = styled.img`
     border-bottom: 1px solid rgba(0,0,0,0.2);
    /* mask-image: linear-gradient(black 80%, transparent);*/
     vertical-align: middle;
-    &:hover{
-        filter:saturate(200%);
-    }
+   
 `
 const Titulo = styled.h3`
     color: #474747;
@@ -91,7 +88,24 @@ const Descripcion = styled.p`
     font-size: 15px;
     width: 100%;
     height: 60px;
+    text-wrap:pretty;
+    color: #696969;
 `
+
+const DescripcionCompleta = styled.p`
+   font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    width: 100%;
+    height: 120px;
+    overflow: scroll;
+    line-height: 1.5;
+    text-wrap:pretty;
+    color: #696969;
+    transition: 1s;
+    
+`
+
 const StyleLink = styled(Link)`
 `
 const DeleteIcon = styled.div`
@@ -122,8 +136,20 @@ const Front = styled.div`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0,0,0,0.1);
-
 `
+const BotonLeer = styled.button`
+        border: 1px solid rgba(0,0,0,0.2);
+        width: 100%;
+        padding: 5px;
+        background: transparent;
+        color: #696969;
+        transition: 1s;
+        &:hover{
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    `
+
 const Card = (props) => {
     const { borrar } = useContext(ContextGlobal);
 
@@ -149,6 +175,8 @@ const Card = (props) => {
         }
     }
 
+    const [mostrar, setMostrar] = useState(true);
+
     return (
         <>
             <CardDiv>
@@ -156,15 +184,23 @@ const Card = (props) => {
                 <ImagenCard src={props.foto} alt={props.nombre} />
 
                 <Figure>
-                    
+
                     <Front>
                         <Titulo>{props.nombre.toUpperCase()}</Titulo>
                         <Link onClick={() => share()}><ShareIcon title="Compartir" /></Link>
                     </Front>
                     <Back>
-                        <FigCaption>
-                            <Descripcion className="texto-descripcion">{props.descripcion}</Descripcion>
-                        </FigCaption>
+                        {mostrar ?
+                            <FigCaption>
+                                <Descripcion >{props.descripcion}</Descripcion>
+                                <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
+
+                            </FigCaption> :
+                            <>
+                                <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
+                                <DescripcionCompleta class>{props.descripcion}</DescripcionCompleta>
+                            </>
+                        }
                     </Back>
                 </Figure>
             </CardDiv>
