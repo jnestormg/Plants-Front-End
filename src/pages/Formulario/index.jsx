@@ -99,7 +99,10 @@ const Formulario = () => {
         localStorage.setItem("datos", JSON.stringify(datos))
 
         guardar(datos);
-        navigate("/")
+        setNombre('')
+        setFoto('')
+        setDescripcion('')
+        //navigate("/")
 
     }
 
