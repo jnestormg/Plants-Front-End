@@ -70,7 +70,6 @@ const ImagenCard = styled.img`
 `
 const Titulo = styled.h3`
     color: #474747;
-    font-size: 20px;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 15px;

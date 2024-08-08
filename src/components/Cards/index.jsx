@@ -5,6 +5,10 @@ import styled from "styled-components"
 
 const Content = styled.div`
 `
+const Titulo=styled.h2`
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+`
 const CardContainer = styled.section`
    display: grid;
    width: 100%;
@@ -29,7 +33,7 @@ const Cards = () => {
     const { planta } = useContext(ContextGlobal);
     return (
         <>
-            <h2>Colección de plantas</h2>
+            <h2 >Colección de plantas</h2>
             <Content>
                 <CardContainer>
 
