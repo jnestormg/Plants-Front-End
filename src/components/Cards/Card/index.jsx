@@ -18,6 +18,7 @@ const CardDiv = styled.div`
     animation: scroll linear;
     animation-timeline: view();
     animation-range:entry 10% ;
+    animation-fill-mode: both;
     &:hover {      
           box-shadow: 12px 12px 12px rgba(0,0,0,0.2), -5px -5px 10px white;
         filter:saturate(150%);
