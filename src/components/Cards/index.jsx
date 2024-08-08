@@ -8,6 +8,7 @@ const Content = styled.div`
 const Titulo=styled.h2`
     font-family: "Roboto", sans-serif;
     font-weight: 300;
+    text-transform: uppercase;
 `
 const CardContainer = styled.section`
    display: grid;
