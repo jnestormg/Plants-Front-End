@@ -9,6 +9,7 @@ const Titulo=styled.h2`
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     text-transform: uppercase;
+    
 `
 const CardContainer = styled.section`
    display: grid;
@@ -34,7 +35,7 @@ const Cards = () => {
     const { planta } = useContext(ContextGlobal);
     return (
         <>
-            <h2 >Colección de plantas</h2>
+            <Titulo >Colección de plantas</Titulo>
             <Content>
                 <CardContainer>
 
