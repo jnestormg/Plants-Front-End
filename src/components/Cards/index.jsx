@@ -33,6 +33,7 @@ const CardContainer = styled.section`
 
 const Cards = () => {
     const { planta } = useContext(ContextGlobal);
+    const plantas=planta.sort((a, b) => b.id - a.id);// cambiar orden
     return (
         <>
             <Titulo >Colección de plantas</Titulo>
@@ -40,7 +41,7 @@ const Cards = () => {
                 <CardContainer>
 
                     {
-                        planta.map((plant) => {
+                        plantas.map((plant) => {
                             console.log(plant.foto);
                             return <Card key={plant.id}
                                 foto={plant.foto}
