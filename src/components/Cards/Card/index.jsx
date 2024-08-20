@@ -4,17 +4,58 @@ import { ContextGlobal } from "../../Context"
 import { Link } from "react-router-dom"
 import { FaShareAlt } from "react-icons/fa";
 import { useState } from "react";
+import { FaRegEye } from "react-icons/fa";
+import { MdNaturePeople } from "react-icons/md";
+import { IoReturnUpForwardOutline } from "react-icons/io5";
+import { CiLineHeight } from "react-icons/ci";
+import { IoSkull } from "react-icons/io5";
+import { FaSunPlantWilt } from "react-icons/fa6";
+import { GiPlantWatering } from "react-icons/gi";
+import { PiFlowerFill } from "react-icons/pi";
+import { GiGroundSprout } from "react-icons/gi";
+import { GiFamilyTree } from "react-icons/gi";
+import { IoReturnUpBackOutline } from "react-icons/io5";
+import { BsFillSunFill } from "react-icons/bs";
+import { BsShadows } from "react-icons/bs";
+import { GrStatusGood } from "react-icons/gr";
+import { LuBadgeInfo } from "react-icons/lu";
+import { IoMdRainy } from "react-icons/io";
+import { IoRainySharp } from "react-icons/io5";
+import { GiRaining } from "react-icons/gi";
+import { PiFlowerLight } from "react-icons/pi";
+import { PiMountainsFill } from "react-icons/pi";
+import { BiWater } from "react-icons/bi";
 
-const CardDiv = styled.div`
+
+
+
+
+const Flip = styled.div`
+   perspective: 1000px;
     width: 100%;
-    height: 455px;
+    height: 460px;
+`
+const FlipCardInner = styled.div`
+position: relative;
+width: 100%;
+height: 100%;
+transition: transform 0.6s;
+transform-style:preserve-3d;
+transform: ${(props) => (props.flipped ? 'rotateY(180deg)' : '')};
+
+`
+
+const CardDivFront = styled.div`
+    width: 100%;
+    height: 100%;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px 10px 5px 5px;
     background: white;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     transition: 0.7s;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    backface-visibility: hidden;
     animation: scroll linear;
     animation-timeline: view();
     animation-range:entry 30% cover 30% ;
@@ -39,24 +80,24 @@ const CardDiv = styled.div`
     }
 `
 
+const CardDivBack = styled.div`
+position: absolute;
+width: 100%;
+height: 100%;
+border: 1px solid rgba(0,0,0,0.1);
+padding: 5px;
+    border-radius: 10px 10px 5px 5px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+`
+
 const Figure = styled.figure`
 `
 const FigCaption = styled.figcaption`
-    /*cursor: pointer;
-   
-&:hover{
-    position: absolute;
-    color: white;
-    inset: 0;
-    width: 100%;
-    text-align: center;
-    background: rgba(0,0,0,0.7);
-    transition: 1s;
-    padding: 10px;
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-}*/
+
+
 
 `
 const ImagenCard = styled.img`
@@ -129,7 +170,6 @@ const DeleteIcon = styled.div`
 `
 const ShareIcon = styled(FaShareAlt)`
     color:#2d8708 ;
-    transform: translate(0px, 20px);
 `
 const Back = styled.div`
 `
@@ -148,11 +188,72 @@ const BotonLeer = styled.button`
         &:hover{
         box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
     }
-
     `
+
+const BotonFlotante = styled.div`
+width: 30px;
+height: 30px;
+background-color: aqua;
+position: relative;
+transition:width 2s;
+&:hover{
+    width: 100%;
+}
+`
+const Iconos = styled.div`
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 5px;
+    width: 60px;
+    height: 30px;
+    transform: translate(0px, 15px);
+`
+
+const Informacion = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 0px 15px;
+    padding: 0px 50px;
+    height: 380px;
+    overflow: scroll;
+    scrollbar-color: green white ;
+`
+
+const TituloBack = styled.h4`
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 5px;
+    color: #696969;
+
+`
+
+const InformationItem = styled.p`
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #696969;
+
+`
+const CabeceraBack=styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px 10px;
+    height: fit-content;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+`
 
 const Card = (props) => {
     const { borrar } = useContext(ContextGlobal);
+    console.log(props.agua);
+    console.log(props.color);
+
 
     const share = async () => {
         const fileArray = [];
@@ -178,33 +279,120 @@ const Card = (props) => {
 
     const [mostrar, setMostrar] = useState(true);
 
+    const [flipped, setFlipped] = useState(false)
+
+    const voltear = () => {
+        setFlipped(!flipped)
+    }
+
     return (
         <>
-            <CardDiv>
-                <StyleLink onClick={() => borrar(props.id)}><DeleteIcon title="Eliminar">X</DeleteIcon></StyleLink>
-                <ImagenCard src={props.foto} alt={props.nombre} />
+            <Flip>
+                <FlipCardInner flipped={flipped}>
+                    <CardDivFront>
+                        <StyleLink onClick={() => borrar(props.id)}><DeleteIcon title="Eliminar">X</DeleteIcon></StyleLink>
+                        <ImagenCard src={props.foto} alt={props.nombre} >
+                        </ImagenCard>
 
-                <Figure>
+                        <Figure>
 
-                    <Front>
-                        <Titulo>{props.nombre.toUpperCase()}</Titulo>
-                        <Link onClick={() => share()}><ShareIcon title="Compartir" /></Link>
-                    </Front>
-                    <Back>
-                        {mostrar ?
-                            <FigCaption>
-                                <Descripcion >{props.descripcion}</Descripcion>
-                                <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
+                            <Front>
+                                <Titulo>{props.nombre.toUpperCase()}</Titulo>
+                                <Iconos>
+                                    <div>
+                                        <Link onClick={() => share()}><ShareIcon title="Compartir" /></Link>
+                                    </div>
+                                    <div>
+                                        <Link onClick={voltear}>
+                                            <LuBadgeInfo style={{ color: 'green', fontSize: '20px', fontWeight: '500' }} />
+                                        </Link>
+                                    </div>
+                                </Iconos>
+                            </Front>
+                            <Back>
 
-                            </FigCaption> :
-                            <>
-                                <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
-                                <DescripcionCompleta class>{props.descripcion}</DescripcionCompleta>
-                            </>
-                        }
-                    </Back>
-                </Figure>
-            </CardDiv>
+                                {mostrar ?
+                                    <FigCaption>
+                                        <Descripcion >{props.descripcion}</Descripcion>
+                                        <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
+
+                                    </FigCaption> :
+                                    <>
+                                        <BotonLeer onClick={() => setMostrar(!mostrar)}>{mostrar ? "Leer más" : "Leer menos"}</BotonLeer>
+                                        <DescripcionCompleta class>{props.descripcion}</DescripcionCompleta>
+                                    </>
+                                }
+                            </Back>
+                        </Figure>
+                    </CardDivFront>
+
+
+                    <CardDivBack>
+                        <CabeceraBack>
+                            <TituloBack >Información</TituloBack>
+
+                            <Link onClick={voltear}>
+                                <IoReturnUpBackOutline
+                                    style={{ transform: 'translate(55px, 20px)',fontSize: '20px', color: 'green' }} />
+                            </Link>
+                        </CabeceraBack>
+
+                        <Informacion>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Habitat:</InformationItem>
+                            <InformationItem>
+                                {props.habitat == "Montaña" ?
+                                    <PiMountainsFill /> : props.habitat == "Mar" ? <BiWater /> :
+                                        props.habitat == "Océano" ? <BiWater /> :
+                                            props.habitat == "Lago" ? <BiWater /> :
+                                                props.habitat == "Río" ? <BiWater /> :
+                                                    <MdNaturePeople />
+
+                                }
+                                {" " + props.habitat}</InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Altura:</InformationItem>
+                            <InformationItem><CiLineHeight />  {props.altura} cm</InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Peligroso:</InformationItem>
+                            <InformationItem>{props.toxicidad ? <IoSkull /> : <GrStatusGood />}  {props.toxicidad ? 'Sí' : 'No'}  </InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Requerimiento de luz:</InformationItem>
+                            <InformationItem> {props.luz == "Sol total" ? <BsFillSunFill /> : props.luz == "Sombra parcial" ? <BsShadows /> : ''}  {props.luz} </InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Requerimiento de agua:</InformationItem>
+                            <InformationItem>
+                                {props.agua == 2 ? <IoRainySharp /> : props.agua == 1 ? <IoMdRainy /> : props.agua == 3 ? <GiRaining /> : ''}
+                                {props.agua == 2 ? ' Riego minimo' : props.agua == 1 ? ' Riego medio' : props.agua == 3 ? ' Riego constante' : ''}
+                            </InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>
+                                {props.color != null ? 'Color de flores' : ''}</InformationItem>
+                            <InformationItem>
+                                {props.color == " Blanco" ? <PiFlowerLight /> : <PiFlowerFill />}
+                                {" " + props.color} </InformationItem>
+
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Tipo de suelo:</InformationItem>
+                            <InformationItem><GiGroundSprout />  {props.suelo} </InformationItem>
+
+
+                            <InformationItem style={{ fontWeight: '500' }}>Familia:</InformationItem>
+                            <InformationItem> <GiFamilyTree />  {props.familia} </InformationItem>
+
+
+                        </Informacion>
+
+                    </CardDivBack>
+                </FlipCardInner>
+            </Flip>
         </>
 
     )

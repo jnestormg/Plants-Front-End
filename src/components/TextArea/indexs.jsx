@@ -8,6 +8,7 @@ const Area=styled.textarea`
     margin-bottom: 10px;
     box-shadow:0px 4px 8px rgba(0,0,0,0.1) ;
     resize: vertical;
+    padding: 5px 10px;
     &:focus{
         outline: none;
     }

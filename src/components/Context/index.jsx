@@ -7,7 +7,37 @@ const Context = ({ children }) => {
 
     const [planta, setPlanta] = useState([]);
 
-    const url = "https://plants-production-6c0e.up.railway.app/api/v1/plantas";
+    const [RequerimientoAgua, setRequerimientoAgua]=useState([])
+
+    const [RequerimientoLuz, setRequerimientoLuz]=useState([])
+
+    const [suelo, setSuelo]=useState([])
+
+    const [habitats, setHabitats]=useState([])
+
+    const [familias, setFamilias]=useState([])
+
+    const [flores, setFlores]=useState([])
+
+
+  //  const url = "https://plants-production-6c0e.up.railway.app/api/v1/plantas";
+    /*const url = "http://localhost:8080/api/v1/plantas";
+    const urlRequerimientosAgua="http://localhost:8080/requerimientos-agua";
+    const urlRequerimientosLuz="http://localhost:8080/requerimiento-luz";
+    const urlSuelo="http://localhost:8080/suelo";
+    const urlHabitats="http://localhost:8080/habitats";
+    const urlFamilias="http://localhost:8080/familias";
+    const urlFlores="http://localhost:8080/flores";*/
+
+    const url = "https://plants-zn1b.onrender.com/api/v1/plantas";
+    const urlRequerimientosAgua="https://plants-zn1b.onrender.com/requerimientos-agua";
+    const urlRequerimientosLuz="https://plants-zn1b.onrender.com/requerimiento-luz";
+    const urlSuelo="https://plants-zn1b.onrender.com/suelo";
+    const urlHabitats="https://plants-zn1b.onrender.com/habitats";
+    const urlFamilias="https://plants-zn1b.onrender.com/familias";
+    const urlFlores="https://plants-zn1b.onrender.com/flores";
+
+
 
     useEffect(() => {
         fetch(url).
@@ -20,6 +50,37 @@ const Context = ({ children }) => {
     const mostrarTodas = () => {
         fetch(url).then(response => response.json()).then(dat => { setPlanta(dat) })
     }
+
+    useEffect(()=>{
+        fetch(urlRequerimientosAgua).then(respo=>respo.json()).then(dattos=>{setRequerimientoAgua(dattos)})
+
+    },[])
+
+    useEffect(()=>{
+        fetch(urlRequerimientosLuz).then(respo=>respo.json()).then(dattos=>{setRequerimientoLuz(dattos)})
+
+    },[])
+
+    useEffect(()=>{
+        fetch(urlSuelo).then(respo=>respo.json()).then(dattos=>{setSuelo(dattos)})
+
+    },[])
+
+    useEffect(()=>{
+        fetch(urlHabitats).then(respo=>respo.json()).then(dattos=>{setHabitats(dattos)})
+
+    },[])
+
+    useEffect(()=>{
+        fetch(urlFamilias).then(response=>response.json()).then(data=>{setFamilias(data)})
+    },[])
+
+    useEffect(()=>{
+        fetch(urlFlores).then(response=>response.json()).then(data=>{setFlores(data)})
+    },[])
+
+
+    
 
     const guardar = (datos) => {
         fetch(url,
@@ -70,7 +131,12 @@ const Context = ({ children }) => {
     }
 
     return (
-        <ContextGlobal.Provider value={{ planta, setPlanta, guardar, borrar, buscar, mostrarTodas }}>
+        <ContextGlobal.Provider value={{ planta, 
+        setPlanta, guardar, borrar,
+         buscar, mostrarTodas, RequerimientoAgua,
+         RequerimientoLuz,
+         suelo, habitats,
+         familias, flores }}>
             {children}
         </ContextGlobal.Provider>
     )
