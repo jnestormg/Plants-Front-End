@@ -108,7 +108,7 @@ const Context = ({ children }) => {
     const buscar = (nombre) => {
         try {
             if (nombre != null) {
-                fetch(`${url}/nombre/${nombre}`).
+                fetch(`https://plants-zn1b.onrender.com/api/v1/planta/name/${nombre}`).
                     then(response => {
                         if (!response.ok) {
                             console.log(response.statusText);
