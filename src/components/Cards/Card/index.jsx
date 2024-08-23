@@ -297,7 +297,7 @@ const Card = (props) => {
                         <Figure>
 
                             <Front>
-                                <Titulo>{props.nombre.toUpperCase()}</Titulo>
+                                <Titulo>{props.nombre}</Titulo>
                                 <Iconos>
                                     <div>
                                         <Link onClick={() => share()}><ShareIcon title="Compartir" /></Link>
