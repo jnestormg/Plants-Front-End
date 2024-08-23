@@ -114,6 +114,7 @@ const Titulo = styled.h3`
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 15px;
+    text-transform: uppercase;
 
 
 `
