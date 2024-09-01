@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BuscarColor from "../BuscarColor";
 import { useContext } from "react";
 import { ContextGlobal } from "../Context";
+import BuscarLuz from "../BuscarLuz";
 
 const Header = styled.header`
     width: 100%;
@@ -112,6 +113,7 @@ const BotonMostrarTodo= styled.button`
     border: none;
     border-radius: 4px;
     padding: 5px;
+    text-align: center;
     
 `
 
@@ -176,6 +178,11 @@ const Cabecera = () => {
                         Color de flor
                     </Summary>
                     <BuscarColor />
+                </Details>
+
+                <Details>
+                    <Summary>Cantidad luz</Summary>
+                    <BuscarLuz />
                 </Details>
 
             </Barra>

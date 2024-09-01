@@ -13,7 +13,6 @@ root.render(
   <React.StrictMode>
 
     <Context>
-
         <Rutas />
     </Context>
   </React.StrictMode>
