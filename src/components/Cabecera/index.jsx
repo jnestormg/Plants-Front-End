@@ -106,6 +106,15 @@ const BotonMenuAbrir = styled.button`
     transition: 1s ease-in;
 `
 
+const BotonMostrarTodo= styled.button`
+    background: #0377ad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    
+`
+
 const Cabecera = () => {
 
     const { mostrarTodas } = useContext(ContextGlobal);
@@ -160,7 +169,7 @@ const Cabecera = () => {
                 <BotonMenuCerrar onClick={() => close()}> &times;</BotonMenuCerrar>
 
                 <TituloMenu>Filtrar</TituloMenu>
-                <button onClick={() => mostrarTodas()}>Mostrar todo </button>
+                <BotonMostrarTodo onClick={() => mostrarTodas()}>Mostrar todo </BotonMostrarTodo>
 
                 <Details open>
                     <Summary>
