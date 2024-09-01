@@ -80,8 +80,9 @@ const BotonMenuCerrar = styled.button`
     font-size: 20px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.3);
+    background: transparent;
     position: relative;
-    left: 90%;
+    left: 85%;
     top:3px;
 
 `
