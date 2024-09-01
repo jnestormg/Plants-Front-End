@@ -55,7 +55,7 @@ border-right: 1px solid rgba(48, 46, 48, 0.2);
 box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
 visibility: hidden;
 transition: 1s ease-in;
-@media (max-width: 420px) {
+@media (max-width: 400px) {
     visibility: visible;
     
 }
@@ -111,7 +111,6 @@ const Cabecera = () => {
 
     function w3_open() {
         let anchoventana=window.innerWidth;
-        alert(anchoventana)
         
         if(anchoventana>=320 && anchoventana<480){
           // document.getElementById("main").style.marginLeft = "55%";
