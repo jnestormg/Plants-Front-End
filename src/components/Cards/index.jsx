@@ -17,7 +17,7 @@ const CardContainer = styled.section`
    grid-template-columns: 1fr;
    gap: 10px;
    @media (min-width: 320px) and (max-width:480px){
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(315px, 97%)); 
     
    }
     @media (min-width: 481px) and (max-width:768px) {
@@ -99,9 +99,6 @@ const obtenerRequerimentoAgua=(id)=>{
 console.log(RequerimientoAgua);
 
 console.log("dsa:"+obtenerRequerimentoAgua(59));
-    
-
-  
 
     const obtenerSuelo=(id)=>{
         const tipo_suelo=[];

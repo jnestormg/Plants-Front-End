@@ -105,6 +105,24 @@ const Context = ({ children }) => {
         catch (error) { console.log(error); }
     }
 
+    const buscarColor = (color)=>{
+        try{
+            if(color.length !=0){
+            fetch(`https://plants-zn1b.onrender.com/api/v1/plantas/color/${color}`)
+            .then(response=>response.json())
+            .then(data=>{setPlanta(data)})
+            }else{
+                alert("No se ha seleccionado ningún color")
+                fetch(`https://plants-zn1b.onrender.com/api/v1/plantas`)
+                .then(response=>response.json())
+                .then(data=>{setPlanta(data)})
+            }
+        }catch(error){
+            console.log(error);
+            
+        }
+    }
+
     const buscar = (nombre) => {
         try {
             if (nombre != null) {
@@ -134,7 +152,7 @@ const Context = ({ children }) => {
         <ContextGlobal.Provider value={{ planta, 
         setPlanta, guardar, borrar,
          buscar, mostrarTodas, RequerimientoAgua,
-         RequerimientoLuz,
+         RequerimientoLuz, buscarColor,
          suelo, habitats,
          familias, flores }}>
             {children}

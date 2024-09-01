@@ -11,7 +11,7 @@ const PrincipalContenedor=styled.main`
 `
 const Main=({children})=>{
     return(
-        <PrincipalContenedor>
+        <PrincipalContenedor id="main">
             {children}
         </PrincipalContenedor>
     )

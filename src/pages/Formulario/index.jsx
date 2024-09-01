@@ -96,7 +96,6 @@ const Formulario = () => {
     const [suelo, setSuelo] = useState(null);
     const [habitat, setHabitat] = useState(null);
     const [familia, setFamilia] = useState(null);
-
     const [requerimientoLuz, setRequerimientoLuz] = useState();
     const [requerimientoAgua, setRequerimientoAgua] = useState();
 

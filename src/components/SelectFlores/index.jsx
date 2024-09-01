@@ -24,6 +24,8 @@ const SelectFlores = (props) => {
     const { flores } = useContext(ContextGlobal);
 
     const actualizarValor = (e) => {
+        console.log("color");
+        
         console.log(e.target.value);
         // Verificar que el valor no sea "Seleccione" antes de actualizar
         if (e.target.value !== "") {
