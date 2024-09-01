@@ -60,7 +60,7 @@ transition: 1s ease-in;
     
 }
 `
-const Details=styled.details`
+const Details = styled.details`
     color: rgba(0,0,0,0.7);
     margin: 10px 20px;
     padding: 10px;
@@ -76,7 +76,7 @@ const Summary = styled.summary`
     }
 `
 
-const BotonMenuCerrar= styled.button`
+const BotonMenuCerrar = styled.button`
     font-size: 20px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.3);
@@ -97,7 +97,7 @@ const TituloMenu = styled.h4`
 
 `
 
-const BotonMenuAbrir= styled.button`
+const BotonMenuAbrir = styled.button`
     background: #616060;
     color: white;
     font-size: 24px;
@@ -107,27 +107,27 @@ const BotonMenuAbrir= styled.button`
 
 const Cabecera = () => {
 
-    const {mostrarTodas}= useContext(ContextGlobal);
+    const { mostrarTodas } = useContext(ContextGlobal);
 
-    function w3_open() {
-        let anchoventana=window.innerWidth;
+    function open() {
+        let anchoventana = window.innerWidth;
+
         
-        if(anchoventana>=320 && anchoventana<480){
-          // document.getElementById("main").style.marginLeft = "55%";
-            //document.getElementById("mySidebar").style.width = "50%";
+        if (anchoventana > 1280  ) {
+            document.getElementById("main").style.marginLeft = "20%";
+            document.getElementById("mySidebar").style.width = "20%";
         }
         else{
-        document.getElementById("main").style.marginLeft = "20%";
-        document.getElementById("mySidebar").style.width = "20%";
+
         }
-        
+
         document.getElementById("mySidebar").style.visibility = "visible";
         document.getElementById("mySidebar").style.display = "block";
         document.getElementById("mySidebar").style.transition = "1s ease-in";
         document.getElementById("openNav").style.display = 'none';
     }
 
-    function w3_close() {
+    function close() {
         document.getElementById("main").style.marginLeft = "0%";
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("mySidebar").style.transition = "1s ease-in";
@@ -141,7 +141,7 @@ const Cabecera = () => {
             <Nav>
                 <Ul>
                     <Li>
-                        <BotonMenuAbrir id="openNav" class="w3-button w3-teal w3-xlarge" onClick={() => w3_open()}>&#9776;</BotonMenuAbrir>
+                        <BotonMenuAbrir id="openNav" class="w3-button w3-teal w3-xlarge" onClick={() => open()}>&#9776;</BotonMenuAbrir>
 
                     </Li>
                     <Li>
@@ -156,10 +156,10 @@ const Cabecera = () => {
 
 
             <Barra id="mySidebar">
-                <BotonMenuCerrar  onClick={() => w3_close()}> &times;</BotonMenuCerrar>
+                <BotonMenuCerrar onClick={() => close()}> &times;</BotonMenuCerrar>
 
                 <TituloMenu>Filtrar</TituloMenu>
-                <button onClick={()=>mostrarTodas()}>Mostrar todo </button>
+                <button onClick={() => mostrarTodas()}>Mostrar todo </button>
 
                 <Details open>
                     <Summary>
