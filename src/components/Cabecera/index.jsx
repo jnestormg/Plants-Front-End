@@ -50,7 +50,7 @@ left: 0px;
 width: 200px;
 z-index: 1;
 background-color: transparent;
-backdrop-filter: blur(10px);
+backdrop-filter: blur(7px);
 border-right: 1px solid rgba(48, 46, 48, 0.2);
 box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
 visibility: hidden;
