@@ -34,6 +34,11 @@ const Flip = styled.div`
    perspective: 1000px;
     width: 100%;
     height: 460px;
+
+    @media (min-width: 320px) and (max-width:480px){
+//    grid-template-columns: repeat(auto-fit, minmax(340px, 97%)); 
+     width:97%;
+   }
 `
 const FlipCardInner = styled.div`
 position: relative;

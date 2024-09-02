@@ -16,6 +16,9 @@ const CardContainer = styled.section`
    width: 100%;
    grid-template-columns: 1fr;
    gap: 10px;
+   justify-content: center;
+   justify-items: center;
+   align-items: center;
    @media (min-width: 320px) and (max-width:480px){
     grid-template-columns: repeat(auto-fit, minmax(315px, 97%)); 
     
