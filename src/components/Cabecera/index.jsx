@@ -174,14 +174,14 @@ const Cabecera = () => {
                 <TituloMenu>Filtrar</TituloMenu>
                 <BotonMostrarTodo onClick={() => mostrarTodas()}>Mostrar todo </BotonMostrarTodo>
 
-                <Details open>
+                <Details open name="acordeon">
                     <Summary>
                         Color de flor
                     </Summary>
                     <BuscarColor />
                 </Details>
 
-                <Details>
+                <Details name="acordeon">
                     <Summary>Cantidad luz</Summary>
                     <BuscarLuz />
                 </Details>
